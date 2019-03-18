@@ -2,12 +2,12 @@
 <?php
 require './admin/lib/php/admin_liste_include.php';
 $cnx = Connexion ::getInstance($dsn, $user, $pass);
- /*var_dump($cnx);
+ var_dump($cnx);
   $f1=new AccueilDB($cnx);
   $liste=$f1->getTexteAccueil();
   for($i=0;$i<count($liste);$i++) {
   print "<br/>Numero du client:  ".$liste[$i]->clienid." Nom et prenom :  ".$liste[$i]->nom.$liste[$i]->prenom." <br/> Son adresse est:  ".$liste[$i]->adresse." Sa date de naissance est : ".$liste[$i]->datenaiss."<br/>";
-  }*/
+  }
 ?>
 <html>
     <head>
