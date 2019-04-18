@@ -7,27 +7,27 @@
  */
 
 /**
- * Description of QuestionDB
+ * Description of QuestionSerieDB
  *
  * @author meril
  */
-class QuestionDB extends Question {
-    private $_db;
+class QuestionSerieDB {
+   private $_db;
     private $_array = array();
     
     public function __construct($db){
         $this->_db = $db;
     }
     //Ici on peut faire le CRUD specifique à la classe
-    public function getQuestion(){
+    public function getQuestionSerie(){
         try{
-            $query = "select * from question ";
+            $query = "select * from question_serie ";
            // print $query;
             $resultset = $this->_db->prepare($query);
             $resultset->execute();
 
             while($data = $resultset->fetch()){
-                $_array[] = new Question($data);
+                $_array[] = new QuestionSerie($data);
             }        
         }
         catch(PDOException $e){

@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+
+.tabulation {
+margin-left: 20px;
+}
+
 body {
   font-family: Arial;
   padding: 10px;
