@@ -1,13 +1,14 @@
 <?php
-//PLACER LE TRAITEMENT AU-DESSUS DU FORMULAIRE
-    if (isset($_POST['submit_login'])) {
-        
-        $req = $cnx->prepare("INSERT INTO examen_code(dateexamen, heureexamen, lieuexamen) VALUES(:dateexamen, :heureexamen, :lieuexamen)");
-        $req->bindParam(':dateexamen',$dateexammen);
-        $req->bindParam(':heureexamen',$heureexamen);
-        $req->bindParam(':lieuexamen',$lieuexamen);
-        $req->execute();
-        //echo 'Vous'.$name.$surname.'avez bien été ajouté !';
+    //PLACER LE TRAITEMENT AU-DESSUS DU FORMULAIRE
+    if (isset($_GET['submit'])) {
+        extract($_GET,EXTR_OVERWRITE);
+        if(empty($dateexamen)||empty($heureexamen)||empty($lieuexamen)){
+            $erreur="<span class='txtRouge txtGras'> Veuillez remplir tous les champs</span>";
+        }
+        else{
+            $ad=new Examen_codeDB($cnx);
+            $retour=$ad->AddExamen($_GET);
+        }
     }
     ?>
 <hgroup>
@@ -18,7 +19,7 @@
                     <div class="col-md-9 register-right">
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-								<form action="<?php print $_SERVER['PHP_SELF'];?>" method="post">
+								<form action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
                                    <div class="row register-form">
 							
                                     <div class="col-md-6">
@@ -31,9 +32,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="datetime" class="form-control" placeholder="Heure de l'examen *" value="" name="heureexamen" id="heureexamen" title="Entrez l'heure de l'examen"  required />
+                                            <input type="time" class="form-control" placeholder="Heure de l'examen *" value="" name="heureexamen" id="heureexamen" title="Entrez l'heure de l'examen"  required />
                                         </div>
-                                        <input type="submit" class="btnRegister" name="submit_login" id="submit_login" value="Enregistrer"/>
+                                        <input type="submit" class="btnRegister" name="submit" id="submit" value="Enregistrer"/>
                                     </div>
                                   </div>
 								 </form>
@@ -63,20 +64,20 @@ $nbr_type = count($types);
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Numero d'examen</th>
-                  <th scope="col">Date</th>
-                  <th scope="col">Heure</th>
-                  <th scope="col">Lieu</th>
+                    <th scope="col"><span style="color:white;">Numero d'examen</span></th>
+                    <th scope="col"><span style="color:white;">Date</span></th>
+                    <th scope="col"><span style="color:white;">Heure</span></th>
+                    <th scope="col"><span style="color:white;">Lieu</span></th>
                 </tr>
               </thead>
               <tbody>
                   <?php
                     for ($i = 0; $i < $nbr_type; $i++) {?>
                 <tr>
-                  <th scope="row"><?php print $types[$i]->passage_codeid;?></th>
-                  <td><?php  print $types[$i]->dateexamen; ?></td>
-                  <td><?php print $types[$i]->heureexamen; ?></td>
-                  <td><?php  print $types[$i]->lieuexamen; ?></td>
+                    <th scope="row"><span style="color:white;"><?php print $types[$i]->passage_codeid;?></span></th>
+                    <td><span style="color:white;"><?php  print $types[$i]->dateexamen; ?></span></td>
+                    <td><span style="color:white;"><?php print $types[$i]->heureexamen; ?></span></td>
+                    <td><span style="color:white;"><?php  print $types[$i]->lieuexamen; ?></span></td>
                 </tr>
                     <?php } ?>
                 </tbody>

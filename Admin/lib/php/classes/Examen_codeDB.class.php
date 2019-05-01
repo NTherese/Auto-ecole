@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of Examen_codeDB
  *
@@ -18,6 +12,29 @@ class Examen_codeDB extends Examen_code {
     public function __construct($db){
         $this->_db = $db;
     }
+    
+    public function AddExamen($data){
+        //$_db->beginTransaction();
+        try{
+            $query="insert into examen_code ";
+            $query.=" (dateexamen,heureexamen,lieuexamen)";
+            $query.=" values(:dateexamen,:heureexamen,:lieuexamen)";
+            $resultset=$this->_db->prepare($query);
+            $resultset->bindValue(':dateexamen',$data['dateexamen']);
+            $resultset->bindValue(':heureexamen',$data['heureexamen']);
+            $resultset->bindValue(':lieuexamen',$data['lieuexamen']);
+            $resultset->execute();
+            //print "Insertion effectuée!!!!";
+        }
+        catch(PDOException $e){
+            print "Echec de l'insertion ".$e->getMessage();
+        }
+        //var_dump($data);
+       // $_db->commit();
+    }
+    
+    
+    
     //Ici on peut faire le CRUD specifique à la classe
     public function getExamenCode(){
         try{

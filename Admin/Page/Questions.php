@@ -73,22 +73,22 @@ $nbr_type = count($types);
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Numero de la question</th>
-                  <th scope="col">Intitule</th>
-                  <th scope="col">Reponse</th>
-                  <th scope="col">Niveau de difficulte</th>
-                  <th scope="col">Theme de la question</th>
+                    <th scope="col"><span style="color:white;">Numero de la question</span></th>
+                    <th scope="col"><span style="color:white;">Intitule</span></th>
+                    <th scope="col"><span style="color:white;">Reponse</span></th>
+                    <th scope="col"><span style="color:white;">Niveau de difficulte</span></th>
+                    <th scope="col"><span style="color:white;">Theme de la question</span></th>
                 </tr>
               </thead>
               <tbody>
                   <?php
                     for ($i = 0; $i < $nbr_type; $i++) {?>
                 <tr>
-                  <th scope="row"><?php print $types[$i]->questionid;?></th>
-                  <td><?php  print $types[$i]->intitule; ?></td>
-                  <td><?php print $types[$i]->reponse; ?></td>
-                  <td><?php  print $types[$i]->niveaudif; ?></td>
-                  <td><?php  print $types[$i]->theme; ?></td>
+                    <th scope="row"><span style="color:white;"><?php print $types[$i]->questionid;?></span></th>
+                    <td><span style="color:white;"><?php  print $types[$i]->intitule; ?></span></td>
+                    <td><span style="color:white;"><?php print $types[$i]->reponse; ?></span></td>
+                    <td><span style="color:white;"><?php  print $types[$i]->niveaudif; ?></span></td>
+                    <td><span style="color:white;"><?php  print $types[$i]->theme; ?></span></td>
                 </tr>
                     <?php } ?>
                 </tbody>

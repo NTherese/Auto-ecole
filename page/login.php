@@ -6,8 +6,8 @@ if (isset($_POST['submit_login'])) {
 
     extract($_POST, EXTR_OVERWRITE);
     $log = new AdminDB($cnx);
-    $admin = $log->getAdmin($admin, $password);
-    var_dump($admin);
+    $admin = $log->getAdmin();
+    //var_dump($admin);
     if (is_null($admin)) {
         print "</br>Données incorrectes";
     } else {

@@ -26,11 +26,12 @@
                         <a class="dropdown-item" href="./index.php?page=Examens.php">Gestion des examens</a>
                         <a class="dropdown-item" href="./index.php?page=Questions.php">Gestion des questions</a>
                         <a class="dropdown-item" href="./index.php?page=Question_serie.php">Gestion des series de questions</a>
-                        <a class="dropdown-item" href="./index.php?page=formations.php">Gestion des seances de cours</a>
+                        <a class="dropdown-item" href="./index.php?page=Seance_cours.php">Gestion des seances de cours</a> 
                         <a class="dropdown-item" href="./index.php?page=Serie.php">Gestion des series</a>
                         <a class="dropdown-item" href="./index.php?page=Cdrom.php">Gestion des cd-rom</a>
+                        <!--modifier les 2 liens ci-dessous.... mettre la bonne page
                         <a class="dropdown-item" href="./index.php?page=formations.php">Gestion des nombres de fautes par examen</a>
-                        <a class="dropdown-item" href="./index.php?page=formations.php">Gestion des nombres de fautes par seance</a>
+                        <a class="dropdown-item" href="./index.php?page=formations.php">Gestion des nombres de fautes par seance</a>-->
                     </div>
                 </li>
                 <li class="nav-item">

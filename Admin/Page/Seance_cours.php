@@ -1,17 +1,5 @@
-<?php
-//PLACER LE TRAITEMENT AU-DESSUS DU FORMULAIRE
-    if (isset($_POST['submit_login'])) {
-        
-        $req = $cnx->prepare("INSERT INTO question_serie(questionid,cdromid,numero) VALUES(:questionid,:cdromid,:numero)");
-        /*$req->bindParam(':dateexamen',$dateexammen);
-        $req->bindParam(':heureexamen',$heureexamen);
-        $req->bindParam(':lieuexamen',$lieuexamen);
-        $req->execute();
-        //echo 'Vous'.$name.$surname.'avez bien été ajouté !';*/
-    }
-    ?>
 <hgroup>
-  <h3 class="aligner txtGras">Entrez les informations sur les series de questions</h3>
+  <h3 class="aligner txtGras">Entrez les informations sur les seances de cours</h3>
   </hgroup>
 <div class="container register">
                 <div class="row">
@@ -21,21 +9,7 @@
 								<form action="<?php print $_SERVER['PHP_SELF'];?>" method="post">
                                    <div class="row register-form">
                                     <div class="col-md">
-                                        <div class="form-group">
-                                            <?php
-                                                //récupération des elements pour la liste déroulante
-                                                $cd = new QuestionDB($cnx);
-                                                $cds = $cd->getQuestion();
-                                                $nbr = count($cds);
-                                            ?>
-                                            <select class="form-control">
-                                                <option class="hidden" selected disabled>Informations sur la question</option>
-                                                 <?php
-                                                    for ($i = 0; $i < $nbr; $i++) {?>
-                                                <option><?php print $cds[$i]->questionid.' '.$cds[$i]->intitule ;?></option>
-                                                     <?php } ?>
-                                            </select>
-                                        </div>
+                                        
                                         <div class="form-group">
                                             <?php
                                                 //récupération des elements pour la liste déroulante
@@ -51,10 +25,14 @@
                                                      <?php } ?>
                                             </select>
                                         </div>
-                                    <div class="col-md">
                                         <div class="form-group">
-                                            <input type="number" class="form-control" placeholder="Numero de la question *" value="" name="numero" id="numero" title="Entrez numero de la question "  required/>
+                                            <input type="date" class="form-control" placeholder="Date de la seance *" value="" name="jour" id="jour" title="Entrez le date de la seance de cours "  required/>
+                                          
                                         </div>
+                                        <div class="form-group">
+                                            <input type="time" class="form-control" placeholder="Heure de la seance *" value="" name="heure" id="heure" title="Entrez l'heure de la seance "  required/>
+                                        </div>
+                                    <div class="col-md">
                                         <input type="submit" class="btnRegister" name="submit_login" id="submit_login" value="Enregistrer"/>
                                     </div>
                                   </div>
@@ -66,41 +44,44 @@
     
                 </div>
 </div>
+
 <br/><br/><br/><br/>
+
 <hgroup>
-    <h3 class="aligner txtGras">Informations sur les series de question</h3>
+    <h3 class="aligner txtGras">Informations sur les seances de formations </h3>
 </hgroup>
 
-<br/><br/>
 <?php
 //récupération des elements pour la liste déroulante
-$typ = new QuestionSerieDB($cnx);
-$types = $typ->getQuestionSerie();
+$typ = new Seance_codeDB($cnx);
+$types = $typ->getSeanceCode();
 $nbr_type = count($types);
 ?>
 
 
 <div class="container">
+    
     <form action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
             <table class="table table-striped">
               <thead>
                 <tr>
-                    <th scope="col"><span style="color:white;">Numero de la question</span></th>
-                    <th scope="col"><span style="color:white;">Numero de la série</span></th>
-                    <th scope="col"><span style="color:white;">Numero </span> </th>
+                        <th scope="col"><span style="color:white;">Numero seance </span></th>
+                        <th scope="col"><span style="color:white;"> Date</span></th>
+                        <th scope="col"><span style="color:white;">Heure</span></th>
                 </tr>
               </thead>
               <tbody>
                   <?php
                     for ($i = 0; $i < $nbr_type; $i++) {?>
                 <tr>
-                    <th scope="row"><span style="color:white;"><?php print $types[$i]->questionid;?></span></th>
-                    <td><span style="color:white;"><?php  print $types[$i]->serieid; ?></span></td>
-                    <td><span style="color:white;"><?php  print $types[$i]->numero; ?></span></td>
+                    <th scope="row"><span style="color:white;"><?php print $types[$i]->seanceid;?></span></th>
+                    <td><span style="color:white;"><?php  print $types[$i]->dateseance; ?></span></td>
+                    <td><span style="color:white;"><?php print $types[$i]->heureseance; ?></Span></td>
                 </tr>
                     <?php } ?>
                 </tbody>
             </table>
     </form>
+        
 </div>
 

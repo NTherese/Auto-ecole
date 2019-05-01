@@ -15,20 +15,20 @@ $nbr_type = count($types);
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Numero d'examen</th>
-                  <th scope="col">Date</th>
-                  <th scope="col">Heure</th>
-                  <th scope="col">Lieu</th>
+                    <th scope="col"><span style="color:white;">Numero d'examen</span></th>
+                    <th scope="col"><span style="color:white;">Date</span></th>
+                    <th scope="col"><span style="color:white;">Heure</span></th>
+                    <th scope="col"><span style="color:white;">Lieu</span></th>
                 </tr>
               </thead>
               <tbody>
                   <?php
                     for ($i = 0; $i < $nbr_type; $i++) {?>
                 <tr>
-                  <th scope="row"><?php print $types[$i]->passage_codeid;?></th>
-                  <td><?php  print $types[$i]->dateexamen; ?></td>
-                  <td><?php print $types[$i]->heureexamen; ?></td>
-                  <td><?php  print $types[$i]->lieuexamen; ?></td>
+                    <th scope="row"><span style="color:white;"><?php print $types[$i]->passage_codeid;?></span></th>
+                    <td><span style="color:white;"><?php  print $types[$i]->dateexamen; ?></span></td>
+                    <td><span style="color:white;"><?php print $types[$i]->heureexamen; ?></span></td>
+                    <td><span style="color:white;"><?php  print $types[$i]->lieuexamen; ?></span></td>
                 </tr>
                     <?php } ?>
                 </tbody>

@@ -1,4 +1,7 @@
 /* style de Digit */
+.container{
+    color:white;
+}
 
 .pink {
     background-color: pink ; 
@@ -35,7 +38,7 @@ section .section-title {
     text-transform: uppercase;
 }
 #footer {
-    background: #007b5e !important;
+    background: #005792;
 }
 #footer h5{
 	padding-left: 10px;
@@ -305,7 +308,7 @@ section .section-title {
     color: #495057;
 }
 body{
-    background-color: #25274d;
+    background-color: #00204A;
 }
 .contact{
     padding: 4%;
@@ -332,8 +335,11 @@ body{
 	border-top-right-radius: 0.5rem;
 	border-bottom-right-radius: 0.5rem;
 }
+.contact-form{
+    height:100px;
+}
 .contact-form label{
-	font-weight:600;
+	font-weight:400;
 }
 .contact-form button{
 	background: #25274d;

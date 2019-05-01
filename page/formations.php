@@ -11,26 +11,28 @@ $nbr_type = count($types);
 
 
 <div class="container">
+    
     <form action="<?php print $_SERVER['PHP_SELF']; ?>" method="get">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Numero seance</th>
-                  <th scope="col">Date</th>
-                  <th scope="col">Heure</th>
+                        <th scope="col"><span style="color:white;">Numero seance </span></th>
+                        <th scope="col"><span style="color:white;"> Date</span></th>
+                        <th scope="col"><span style="color:white;">Heure</span></th>
                 </tr>
               </thead>
               <tbody>
                   <?php
                     for ($i = 0; $i < $nbr_type; $i++) {?>
                 <tr>
-                  <th scope="row"><?php print $types[$i]->seanceid;?></th>
-                  <td><?php  print $types[$i]->dateseance; ?></td>
-                  <td><?php print $types[$i]->heureseance; ?></td>
+                    <th scope="row"><span style="color:white;"><?php print $types[$i]->seanceid;?></span></th>
+                    <td><span style="color:white;"><?php  print $types[$i]->dateseance; ?></span></td>
+                    <td><span style="color:white;"><?php print $types[$i]->heureseance; ?></Span></td>
                 </tr>
                     <?php } ?>
                 </tbody>
             </table>
     </form>
+        
 </div>
 

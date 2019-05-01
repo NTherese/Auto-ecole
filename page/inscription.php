@@ -58,11 +58,11 @@
                                             <div class="maxl">
                                                 <label class="radio inline"> 
                                                     <input type="radio" name="gender" value="Homme" checked>
-                                                    <span> Homme </span> 
+                                                    <span style="color:black;"> Homme </span> 
                                                 </label>
                                                 <label class="radio inline"> 
                                                     <input type="radio" name="gender" value="Femme">
-                                                    <span>Femme </span> 
+                                                    <span style="color:black;">Femme </span> 
                                                 </label>
                                             </div>
                                         </div>

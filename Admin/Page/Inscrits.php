@@ -15,28 +15,28 @@ $nbr_type = count($types);
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Numero du client</th>
-                  <th scope="col">Nom</th>
-                  <th scope="col">Prenom</th>
-                  <th scope="col">Adresse</th>
-                  <th scope="col">Date naissance</th>
-                  <th scope="col">Login</th>
-                  <th scope="col">Mot de passe</th>
-                  <th scope="col">Email</th>
+                    <th scope="col"><span style="color:white;">Numero du client</span></th>
+                    <th scope="col"><span style="color:white;">Nom</span></th>
+                    <th scope="col"><span style="color:white;">Prenom</span></th>
+                    <th scope="col"><span style="color:white;">Adresse</span></th>
+                    <th scope="col"><span style="color:white;">Date naissance</span></th>
+                    <th scope="col"><span style="color:white;">Login</span></th>
+                    <th scope="col"><span style="color:white;">Mot de passe</span></th>
+                    <th scope="col"><span style="color:white;">Email</span></th>
                 </tr>
               </thead>
               <tbody>
                   <?php
                     for ($i = 0; $i < $nbr_type; $i++) {?>
                 <tr>
-                  <th scope="row"><?php print $types[$i]->clienid;?></th>
-                  <td><?php  print $types[$i]->nom; ?></td>
-                  <td><?php print $types[$i]->prenom; ?></td>
-                  <td><?php  print $types[$i]->adresse; ?></td>
-                  <td><?php  print $types[$i]->datenaiss; ?></td>
-                  <td><?php  print $types[$i]->login; ?></td>
-                  <td><?php  print $types[$i]->password; ?></td>
-                  <td><?php  print $types[$i]->email; ?></td>
+                    <th scope="row"><span style="color:white;"><?php print $types[$i]->clienid;?></span></th>
+                    <td><span style="color:white;"><?php  print $types[$i]->nom; ?></span></td>
+                    <td><span style="color:white;"><?php print $types[$i]->prenom; ?></span></td>
+                    <td><span style="color:white;"><?php  print $types[$i]->adresse; ?></span></td>
+                    <td><span style="color:white;"><?php  print $types[$i]->datenaiss; ?></span></td>
+                    <td><span style="color:white;"><?php  print $types[$i]->login; ?></span></td>
+                    <td><span style="color:white;"><?php  print $types[$i]->password; ?></span></td>
+                    <td><span style="color:white;"><?php  print $types[$i]->email; ?></span></td>
                 </tr>
                     <?php } ?>
                 </tbody>

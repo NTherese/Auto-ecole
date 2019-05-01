@@ -68,16 +68,16 @@ $nbr_type = count($types);
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col">Numero de la série</th>
-                  <th scope="col">Numero du cd de la serie</th>
+                    <th scope="col"><span style="color:white;">Numero de la série</span></th>
+                    <th scope="col"><span style="color:white;">Numero du cd de la serie</span></th>
                 </tr>
               </thead>
               <tbody>
                   <?php
                     for ($i = 0; $i < $nbr_type; $i++) {?>
                 <tr>
-                  <th scope="row"><?php print $types[$i]->serieid;?></th>
-                  <td><?php  print $types[$i]->cdromid; ?></td>
+                    <th scope="row"><span style="color:white;"><?php print $types[$i]->serieid;?></span></th>
+                    <td><span style="color:white;"><?php  print $types[$i]->cdromid; ?></span></td>
                 </tr>
                     <?php } ?>
                 </tbody>
