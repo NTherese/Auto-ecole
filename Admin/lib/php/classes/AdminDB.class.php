@@ -27,6 +27,21 @@ class AdminDB extends Admin {
        // $_db->commit();
     }
     
+    public function updateAdmin($champ,$nouveau,$id){
+        try {
+          // PREPARER LA REQUETE COMME VU PRECEDEMMENT
+            $query="UPDATE admin set ".$champ." = '".$nouveau."' where id_admin ='".$id."'";            
+            $resultset = $this->_db->prepare($query);
+            print $query;
+            $resultset->execute();   
+            
+            
+        }catch(PDOException $e){
+            print $e->getMessage();
+        }
+    }
+
+    
     public function getAdmin(){
         $query = "select * from admin";
         try{

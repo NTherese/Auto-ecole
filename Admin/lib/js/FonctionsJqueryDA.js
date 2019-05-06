@@ -1,40 +1,16 @@
+/* Copie du langage C
+ * Fonctions jquery pour DA*/
+
 $(document).ready(function(){
     
-    //PREMIER AJAX : afficher les données du client
-    //Code pour alimentation automatique des champs
-    $('#password').blur(function () {
-        login= $('#login').val();
-        statut = $('#statut').val();
-        
-        if (($.trim(login) != '' && $.trim(statut != '')) ) {
-            //alert("email1 = "+email1+" et email2 = "+email2+ " et password = "+password);
-            var recherche = "login=" + login + "&statut=" + statut;           
-            $.ajax({
-                type: 'GET',
-                data: recherche,
-                dataType: "json",
-                url: './admin/lib/php/ajax/RechercheAdmin.php',
-                success: function (data) { // retournÃ© par le fichier php
-                    $('#login').val(data[0].login);
-                    $('#statut').val(data[0].statut);
-                    
-                    console.log(data[0].login);
-                }
-            });
-           
-        }
-    });
-    });
-    
-    //code pour le tableau éditable
-    $("span[id]").click(function () {
+       $("span[id]").click(function () {
       //Récupération du contenu d'origine de la zone cliquée
         var valeur1 = $.trim($(this).text());
 
         //s'il fallait tester si on utilise edge :
-        //if (/Edge\/\d./i.test(navigator.userAgent)) {
-        //    $(this).addClass("borderInput");
-        //}
+        if (/Edge\/\d./i.test(navigator.userAgent)) {
+            $(this).addClass("borderInput");
+        }
 
         //2 lignes suivantes pour firefox
         $(this).contentEditable = "true";
@@ -50,15 +26,16 @@ $(document).ready(function(){
             var valeur2 = $(this).text();
             valeur2 = $.trim(valeur2);
 
-            if (valeur1 !== valeur2) // Si on a fait un changement
+            if (valeur1 != valeur2) // Si on a fait un changement
             {
                //adjonction des paramètres qui accompagnent le nom du fichier appelé
                 var parametre = 'champ=' + name + '&id=' + ident + '&nouveau=' + valeur2;
+               // alert (parametre);
                 var retour = $.ajax({
                     type: 'GET',
                     data: parametre,
                     dataType: "text",
-                    url: "./admin/lib/php/ajax/ajaxUpdateProduit.php",
+                    url: "./lib/php/ajax/ajaxUpdateAdmin.php",
                     success: function (data) {
                        //rien de particulier à faire
                         console.log("success");
@@ -72,3 +49,5 @@ $(document).ready(function(){
             };
         });
     });
+
+});

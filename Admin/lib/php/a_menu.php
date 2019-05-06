@@ -37,6 +37,9 @@
                 <li class="nav-item">
                         <a class="nav-link " href="./index.php?page=NewAdmin.php">Ajouter un autre admin</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?page=tab_editable.php">Tableau editable</a>
+                </li>
                 <li class="nav-item ">
                     <a class="nav-link"  href="index.php?page=Disconnect.php">Déconnexion</a>
                 </li>
