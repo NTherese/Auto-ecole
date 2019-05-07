@@ -34,11 +34,15 @@
                         <a class="dropdown-item" href="./index.php?page=formations.php">Gestion des nombres de fautes par seance</a>-->
                     </div>
                 </li>
-                <li class="nav-item">
-                        <a class="nav-link " href="./index.php?page=NewAdmin.php">Ajouter un autre admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=tab_editable.php">Tableau editable</a>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gestion des Administrateurs
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="./index.php?page=NewAdmin.php">Ajouter un nouvel administrateur</a>
+                        <a class="dropdown-item" href="./index.php?page=tab_editable.php">Modification d'administateurs</a>
+                    </div>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link"  href="index.php?page=Disconnect.php">Déconnexion</a>
