@@ -44,6 +44,7 @@
 
 <br/><br/>
 <?php
+include('lib/php/verifier_connexion.php');
 //récupération des elements pour la liste déroulante
 $typ = new cd_romDB($cnx);
 $types = $typ->getCdRom();

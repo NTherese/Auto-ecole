@@ -5,6 +5,7 @@ session_start();
 ?>
 <?php
 require './lib/php/admin_liste_include.php';
+//require './lib/php/verifier_connexion.php';
 $cnx = Connexion::getInstance($dsn, $user, $pass);
 
 ?>

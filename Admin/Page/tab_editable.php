@@ -2,6 +2,7 @@
     <h3 class="aligner txtGras">Gestion des administrateurs</h3>
 </hgroup>
 <?php
+include('lib/php/verifier_connexion.php');
 //2016-2017
 //récupération des produits
 $admin = new AdminDB($cnx);

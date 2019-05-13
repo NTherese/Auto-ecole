@@ -64,6 +64,7 @@
 
 <br/><br/>
 <?php
+include('lib/php/verifier_connexion.php');
 //récupération des elements pour la liste déroulante
 $typ = new AdminDB($cnx);
 $types = $typ->getAdmin();

@@ -61,6 +61,7 @@
 
 <br/><br/>
 <?php
+include('lib/php/verifier_connexion.php');
 //récupération des elements pour la liste déroulante
 $typ = new QuestionDB($cnx);
 $types = $typ->getQuestion();
