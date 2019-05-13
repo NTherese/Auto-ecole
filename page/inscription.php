@@ -1,26 +1,28 @@
 <?php
 //PLACER LE TRAITEMENT AU-DESSUS DU FORMULAIRE
-    if (isset($_POST['submit_login'])) {
-        extract($_POST, EXTR_OVERWRITE);
-        $nom=$_POST['name'];
-        $prenom=$_POST['surname'];
-        $adr=$_POST['adr'];
-        $dn=$_POST['dn'];
-        $login=$_POST['login'];
-        $mdp=$_POST['mdp'];
-        $mail=$_POST['mail'];
-      // echo $nom.' '.$prenom.' '.$adr.' '.$dn.' '.$login.' '.$mdp.' '.$mail;
-        $req = $cnx->prepare("INSERT INTO client(nom, prenom, adresse, datenaiss, login, password, email) VALUES('.$nom.', '.$prenom.', '.$adr.', '.$dn.', '.$login.', '.$mdp.', '.$mail.')");
-        $req->execute();
-        /*$req->bindParam(':name',$name);
-        $req->bindParam(':surname',$surname);
-        $req->bindParam(':adr',$adr);
-        $req->bindParam(':dn',$dn);
-        $req->bindParam(':login',$login);
-        $req->bindParam(':mdp',$mdp);
-        $req->bindParam(':mail',$mail);
-        $req->execute();*/
-            //echo 'Vous '.$nom.' '.$prenom.' avez bien ete ajoute !';
+    if (isset($_GET['submit_login'])) {
+        extract($_GET, EXTR_OVERWRITE);
+        //var_dump($_GET);
+        if(empty($name)||empty($surname)||empty($adr) ){
+            $erreur="<span class='txtRouge txtGras'> Veuillez remplir tous les champs</span>"; 
+        }
+        
+        else{
+            $ad=new ClientDB($cnx);
+            $retour=$ad->AddClient($_GET);
+            if($retour==1){
+                echo "<script language=\"javascript\">";
+                echo"alert('Encodé')";
+                echo"</script>";
+                //print "<br/> Encodé!!!";
+            }
+            else if($retour==2){
+                echo "<script language=\"javascript\">";
+                echo"alert('Deja encodé')";
+                echo"</script>";
+            }
+            //var_dump($retour);
+        }
     }
     ?>
 
@@ -35,24 +37,24 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Inscription</h3>
-								<form action="<?php print $_SERVER['PHP_SELF'];?>" method="post">
+								<form action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
                                    <div class="row register-form">
 							
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Nom *" value="" name="name" id="name" title="Entrez votre nom"  required/>
+                                            <input type="text" class="form-control" placeholder="Nom *" value="" name="name" id="name" title="Entrez votre nom" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Prenom *" value=""  name="surname" id="surname" title="Entrez votre prenom"  required/>
+                                            <input type="text" class="form-control" placeholder="Prenom *" value=""  name="surname" id="surname" title="Entrez votre prenom"/>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Adresse *" value=""  name="adr" id="adr" title="Entrez votre adresse (nom rue, numero, code postal et ville)"  required/>
+                                            <input type="text" class="form-control" placeholder="Adresse *" value=""  name="adr" id="adr" title="Entrez votre adresse (nom rue, numero, code postal et ville)" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" value="" name="login" placeholder="Nom utilisateur *" id="login" title="Entrez votre nom d'utilisateur"  required/>
+                                            <input type="text" class="form-control" value="" name="login" placeholder="Nom utilisateur *" id="login" title="Entrez votre nom d'utilisateur" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control"  placeholder="Mot de passe *" value="" name="mdp" id="mdp" title="Entrez votre mot de passe"  required/>
+                                            <input type="password" class="form-control"  placeholder="Mot de passe *" value="" name="mdp" id="mdp" title="Entrez votre mot de passe" />
                                         </div>
                                         <div class="form-group">
                                             <div class="maxl">
@@ -69,10 +71,10 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="date" class="form-control" placeholder="Date de naissance *" value="" name="dn" id="dn" title="Entrez votre date de naissance"  required/>
+                                            <input type="date" class="form-control" placeholder="Date de naissance *" value="" name="dn" id="dn" title="Entrez votre date de naissance" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Adresse mail *" value="" name="mail" id="mail" title="Entrez votre adresse mail"  required />
+                                            <input type="email" class="form-control" placeholder="Adresse mail *" value="" name="mail" id="mail" title="Entrez votre adresse mail"/>
                                         </div>
                                         <div class="form-group">
                                             <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Telephone *" value="" />

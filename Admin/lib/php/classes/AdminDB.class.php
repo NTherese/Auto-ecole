@@ -7,7 +7,6 @@ class AdminDB extends Admin {
     public function __construct($db){
         $this->_db = $db;
     }
-    
     public function AddAdmin(array $data){
         $query="select ajouter_admin(:login,:password,:statut) as retour";
         try{
@@ -26,6 +25,7 @@ class AdminDB extends Admin {
         //var_dump($data);
        // $_db->commit();
     }
+    
     
     public function updateAdmin($champ,$nouveau,$id){
         try {

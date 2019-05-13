@@ -1,5 +1,6 @@
 <?php
 //PLACER LE TRAITEMENT AU-DESSUS DU FORMULAIRE
+include('lib/php/verifier_connexion.php');
     if (isset($_POST['submit_login'])) {
         
         $req = $cnx->prepare("INSERT INTO serie(cdromid) VALUES(:cdromid)");
@@ -56,7 +57,7 @@
 
 <br/><br/>
 <?php
-include('lib/php/verifier_connexion.php');
+
 //récupération des elements pour la liste déroulante
 $typ = new SerieDB($cnx);
 $types = $typ->getSerie();

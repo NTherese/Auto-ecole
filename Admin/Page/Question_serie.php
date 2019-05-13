@@ -1,4 +1,5 @@
 <?php
+include('lib/php/verifier_connexion.php');
 //PLACER LE TRAITEMENT AU-DESSUS DU FORMULAIRE
     if (isset($_POST['submit_login'])) {
         
@@ -73,7 +74,7 @@
 
 <br/><br/>
 <?php
-include('lib/php/verifier_connexion.php');
+
 //récupération des elements pour la liste déroulante
 $typ = new QuestionSerieDB($cnx);
 $types = $typ->getQuestionSerie();
