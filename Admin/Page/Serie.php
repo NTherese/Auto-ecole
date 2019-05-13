@@ -3,12 +3,7 @@
 include('lib/php/verifier_connexion.php');
     if (isset($_POST['submit_login'])) {
         
-        $req = $cnx->prepare("INSERT INTO serie(cdromid) VALUES(:cdromid)");
-        /*$req->bindParam(':dateexamen',$dateexammen);
-        $req->bindParam(':heureexamen',$heureexamen);
-        $req->bindParam(':lieuexamen',$lieuexamen);
-        $req->execute();
-        //echo 'Vous'.$name.$surname.'avez bien été ajouté !';*/
+        //ajouter la fonction add dans la classe db
     }
     ?>
 <hgroup>

@@ -2,12 +2,7 @@
 //PLACER LE TRAITEMENT AU-DESSUS DU FORMULAIRE
     if (isset($_POST['submit_login'])) {
         
-        $req = $cnx->prepare("INSERT INTO question(intitule,reponse,niveaudif,theme) VALUES(:intitule,:reponse,:niveaudif,:theme)");
-        /*$req->bindParam(':dateexamen',$dateexammen);
-        $req->bindParam(':heureexamen',$heureexamen);
-        $req->bindParam(':lieuexamen',$lieuexamen);
-        $req->execute();
-        //echo 'Vous'.$name.$surname.'avez bien été ajouté !';*/
+       //ajouter la fonction ajout dans la classe DB
     }
     ?>
 <hgroup>

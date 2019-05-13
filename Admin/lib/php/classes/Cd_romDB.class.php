@@ -18,6 +18,22 @@ class cd_romDB extends cd_rom{
     public function __construct($db){
         $this->_db = $db;
     }
+    
+    public function Addcd(array $data){
+        $query="INSERT INTO cd_rom(editeur) VALUES(:editeur)";
+        try{
+            $resultset=$this->_db->prepare($query);
+            $resultset->bindValue(':editeur',$data['editeur'],PDO::PARAM_STR);
+            $resultset->execute();
+        }
+        catch(PDOException $e){
+            print "<br/>Echec de l'insertion ";
+            print $e->getMessage();
+        }
+        //var_dump($data);
+       // $_db->commit();
+    }
+    
     //Ici on peut faire le CRUD specifique à la classe
     public function getCdRom(){
         try{

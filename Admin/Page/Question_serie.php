@@ -2,13 +2,7 @@
 include('lib/php/verifier_connexion.php');
 //PLACER LE TRAITEMENT AU-DESSUS DU FORMULAIRE
     if (isset($_POST['submit_login'])) {
-        
-        $req = $cnx->prepare("INSERT INTO question_serie(questionid,cdromid,numero) VALUES(:questionid,:cdromid,:numero)");
-        /*$req->bindParam(':dateexamen',$dateexammen);
-        $req->bindParam(':heureexamen',$heureexamen);
-        $req->bindParam(':lieuexamen',$lieuexamen);
-        $req->execute();
-        //echo 'Vous'.$name.$surname.'avez bien été ajouté !';*/
+        //ajouter la fonction add question_serie
     }
     ?>
 <hgroup>

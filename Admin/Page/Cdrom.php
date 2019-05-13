@@ -1,13 +1,26 @@
 <?php
 //PLACER LE TRAITEMENT AU-DESSUS DU FORMULAIRE
-    if (isset($_POST['submit_login'])) {
-        
-        $req = $cnx->prepare("INSERT INTO cd_rom(editeur) VALUES(:editeur)");
-        /*$req->bindParam(':dateexamen',$dateexammen);
-        $req->bindParam(':heureexamen',$heureexamen);
-        $req->bindParam(':lieuexamen',$lieuexamen);
-        $req->execute();
-        //echo 'Vous'.$name.$surname.'avez bien été ajouté !';*/
+    if (isset($_GET['submit_login'])) {
+        extract($_GET,EXTR_OVERWRITE);
+        if(empty($editeur)){
+            $erreur="<span class='txtRouge txtGras'> Veuillez remplir tous les champs</span>";
+        }
+        else{
+            $ad=new cd_romDB($cnx);
+            $retour=$ad->Addcd($_GET);
+            if($retour==1){
+                echo "<script language=\"javascript\">";
+                echo"alert('Encodé')";
+                echo"</script>";
+                //print "<br/> Encodé!!!";
+            }
+            else if($retour==2){
+                echo "<script language=\"javascript\">";
+                echo"alert('Deja encodé')";
+                echo"</script>";
+            }
+            //var_dump($retour);
+        }
     }
     ?>
 <hgroup>
@@ -18,7 +31,7 @@
                     <div class="col-md-9 register-right">
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-								<form action="<?php print $_SERVER['PHP_SELF'];?>" method="post">
+								<form action="<?php print $_SERVER['PHP_SELF'];?>" method="get">
                                    <div class="row register-form">
 							
                                     <div class="col-md-6">
